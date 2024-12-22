@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHRONICJOKER</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="container my-5">
+    <!-- Content goes here -->
+    <h2 class="text-center mb-4">Choose your brand of humour</h2>
+    <form action="/get-joke" method="POST" class="text-center">
+      <select name="category" class="form-select w-50 mx-auto mb-3">
+        <option value="Any">Any</option>
+        <option value="Misc">Misc</option>
+        <option value="Programming">Programming</option>
+        <option value="Dark">Dark</option>
+        <option value="Pun">Pun</option>
+        <option value="Spooky">Spooky</option>
+        <option value="Christmas">Christmas</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Generate Joke</button>
+    </form>
+  </main>
+
+  <% if (typeof joke !== 'undefined') { %>
+    <div class="joke mt-4 text-center">
+      <p class="alert alert-success"><%= joke %></p>
+    </div>
+  <% } %>
+  
+
+  <%- include('partials/footer') %>
+</body>
+</html>
